@@ -1,0 +1,14 @@
+{
+  "dataset": "nuscenes",
+  "scene": "scene-0553",
+  "model": "yolo11m",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "imgsz": 1280,
+  "conf": 0.25,
+  "n_frames": 41,
+  "n_timed": 38,
+  "ms_p50": 34.18,
+  "ms_p95": 35.21,
+  "ms_mean": 33.65,
+  "fps": 29.72
+}

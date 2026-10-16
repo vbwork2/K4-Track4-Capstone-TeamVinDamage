@@ -1,0 +1,14 @@
+{
+  "dataset": "phenikaa",
+  "scene": "COMPLEX CITY",
+  "model": "yolo11m",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "imgsz": 1280,
+  "conf": 0.25,
+  "n_frames": 200,
+  "n_timed": 197,
+  "ms_p50": 47.73,
+  "ms_p95": 50.18,
+  "ms_mean": 48.28,
+  "fps": 20.71
+}

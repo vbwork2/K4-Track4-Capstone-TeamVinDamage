@@ -1,0 +1,2538 @@
+[
+ {
+  "name": "baseline (BE default)",
+  "tracker": {
+   "gate_m": 1.5,
+   "max_age_s": 1.0,
+   "trail_s": 1.0,
+   "process_var": 2.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0
+  },
+  "mean": {
+   "pos_med": 1.2276844964059968,
+   "cover": 0.8630304044379089,
+   "ghosts": 27.59,
+   "births": 14.2025,
+   "m4_p": 0.7056381118881119,
+   "m4_r": 0.8547126571865085,
+   "m4_f1": 0.7719235364396655
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3840616085725355,
+    "cover": 0.894377640558986,
+    "ghosts": 16.22,
+    "births": 16.625,
+    "m4_p": 0.6420454545454546,
+    "m4_r": 0.8432835820895522,
+    "m4_f1": 0.7290322580645161
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.0713073842394578,
+    "cover": 0.8316831683168316,
+    "ghosts": 38.96,
+    "births": 11.78,
+    "m4_p": 0.7692307692307693,
+    "m4_r": 0.8661417322834646,
+    "m4_f1": 0.8148148148148148
+   }
+  }
+ },
+ {
+  "name": "fit pv=1.0 chi2=9.21 cap=3.0 drop=False age=0.5",
+  "tracker": {
+   "gate_m": 3.0,
+   "max_age_s": 0.5,
+   "trail_s": 1.0,
+   "process_var": 1.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 9.21,
+   "drop_tentative": false,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.265701913029548,
+   "cover": 0.812116083236533,
+   "ghosts": 17.035,
+   "births": 11.24,
+   "m4_p": 0.710189452124936,
+   "m4_r": 0.8333823010929604,
+   "m4_f1": 0.7615242094861661
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.4283185055534653,
+    "cover": 0.8420539486512837,
+    "ghosts": 10.665,
+    "births": 13.21,
+    "m4_p": 0.6505376344086021,
+    "m4_r": 0.9029850746268657,
+    "m4_f1": 0.75625
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.1030853205056304,
+    "cover": 0.7821782178217822,
+    "ghosts": 23.405,
+    "births": 9.27,
+    "m4_p": 0.7698412698412699,
+    "m4_r": 0.7637795275590551,
+    "m4_f1": 0.766798418972332
+   }
+  }
+ },
+ {
+  "name": "fit pv=1.0 chi2=9.21 cap=3.0 drop=False age=1.0",
+  "tracker": {
+   "gate_m": 3.0,
+   "max_age_s": 1.0,
+   "trail_s": 1.0,
+   "process_var": 1.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 9.21,
+   "drop_tentative": false,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2479158846211513,
+   "cover": 0.8703622962231226,
+   "ghosts": 24.19,
+   "births": 9.815,
+   "m4_p": 0.6973042948522692,
+   "m4_r": 0.8709013985192149,
+   "m4_f1": 0.769418321142459
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.338296978135116,
+    "cover": 0.8958401039974001,
+    "ghosts": 15.655,
+    "births": 11.465,
+    "m4_p": 0.6632653061224489,
+    "m4_r": 0.9701492537313433,
+    "m4_f1": 0.7878787878787878
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.157534791107187,
+    "cover": 0.8448844884488449,
+    "ghosts": 32.725,
+    "births": 8.165,
+    "m4_p": 0.7313432835820896,
+    "m4_r": 0.7716535433070866,
+    "m4_f1": 0.7509578544061303
+   }
+  }
+ },
+ {
+  "name": "fit pv=1.0 chi2=9.21 cap=3.0 drop=True age=0.5",
+  "tracker": {
+   "gate_m": 3.0,
+   "max_age_s": 0.5,
+   "trail_s": 1.0,
+   "process_var": 1.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 9.21,
+   "drop_tentative": true,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2255655798621956,
+   "cover": 0.7872911263027005,
+   "ghosts": 13.4925,
+   "births": 12.6675,
+   "m4_p": 0.709953488372093,
+   "m4_r": 0.7927488541544248,
+   "m4_f1": 0.7457983193277311
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3781947581861425,
+    "cover": 0.8170295742606435,
+    "ghosts": 8.415,
+    "births": 14.94,
+    "m4_p": 0.627906976744186,
+    "m4_r": 0.8059701492537313,
+    "m4_f1": 0.7058823529411765
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.0729364015382488,
+    "cover": 0.7575526783447576,
+    "ghosts": 18.57,
+    "births": 10.395,
+    "m4_p": 0.792,
+    "m4_r": 0.7795275590551181,
+    "m4_f1": 0.7857142857142857
+   }
+  }
+ },
+ {
+  "name": "fit pv=1.0 chi2=9.21 cap=3.0 drop=True age=1.0",
+  "tracker": {
+   "gate_m": 3.0,
+   "max_age_s": 1.0,
+   "trail_s": 1.0,
+   "process_var": 1.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 9.21,
+   "drop_tentative": true,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2284801034618784,
+   "cover": 0.8405715393418796,
+   "ghosts": 18.3825,
+   "births": 11.557500000000001,
+   "m4_p": 0.7071555895085306,
+   "m4_r": 0.8331766365025267,
+   "m4_f1": 0.7595089456121557
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.338296978135116,
+    "cover": 0.8695157621059474,
+    "ghosts": 11.865,
+    "births": 13.49,
+    "m4_p": 0.6524064171122995,
+    "m4_r": 0.9104477611940298,
+    "m4_f1": 0.7601246105919003
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.1186632287886409,
+    "cover": 0.8116273165778116,
+    "ghosts": 24.9,
+    "births": 9.625,
+    "m4_p": 0.7619047619047619,
+    "m4_r": 0.7559055118110236,
+    "m4_f1": 0.758893280632411
+   }
+  }
+ },
+ {
+  "name": "fit pv=1.0 chi2=9.21 cap=6.0 drop=False age=0.5",
+  "tracker": {
+   "gate_m": 6.0,
+   "max_age_s": 0.5,
+   "trail_s": 1.0,
+   "process_var": 1.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 9.21,
+   "drop_tentative": false,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2416805972274245,
+   "cover": 0.8062462011056984,
+   "ghosts": 17.0075,
+   "births": 8.355,
+   "m4_p": 0.7172688172043011,
+   "m4_r": 0.8373193089669762,
+   "m4_f1": 0.7670138888888889
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3752458099465663,
+    "cover": 0.8353916152096198,
+    "ghosts": 10.915,
+    "births": 9.67,
+    "m4_p": 0.6505376344086021,
+    "m4_r": 0.9029850746268657,
+    "m4_f1": 0.75625
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.108115384508283,
+    "cover": 0.7771007870017771,
+    "ghosts": 23.1,
+    "births": 7.04,
+    "m4_p": 0.784,
+    "m4_r": 0.7716535433070866,
+    "m4_f1": 0.7777777777777778
+   }
+  }
+ },
+ {
+  "name": "fit pv=1.0 chi2=9.21 cap=6.0 drop=False age=1.0",
+  "tracker": {
+   "gate_m": 6.0,
+   "max_age_s": 1.0,
+   "trail_s": 1.0,
+   "process_var": 1.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 9.21,
+   "drop_tentative": false,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2544997615037552,
+   "cover": 0.8636801612962977,
+   "ghosts": 23.37,
+   "births": 6.9975000000000005,
+   "m4_p": 0.7209488481062085,
+   "m4_r": 0.8864437654248443,
+   "m4_f1": 0.788766501698661
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3767950419268262,
+    "cover": 0.8916152096197595,
+    "ghosts": 15.13,
+    "births": 7.965,
+    "m4_p": 0.6649746192893401,
+    "m4_r": 0.9776119402985075,
+    "m4_f1": 0.7915407854984894
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.132204481080684,
+    "cover": 0.8357451129728357,
+    "ghosts": 31.61,
+    "births": 6.03,
+    "m4_p": 0.7769230769230769,
+    "m4_r": 0.7952755905511811,
+    "m4_f1": 0.7859922178988327
+   }
+  }
+ },
+ {
+  "name": "fit pv=1.0 chi2=9.21 cap=6.0 drop=True age=0.5",
+  "tracker": {
+   "gate_m": 6.0,
+   "max_age_s": 0.5,
+   "trail_s": 1.0,
+   "process_var": 1.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 9.21,
+   "drop_tentative": true,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.19833184717494,
+   "cover": 0.7851282678329081,
+   "ghosts": 13.82,
+   "births": 9.735,
+   "m4_p": 0.7189121660580434,
+   "m4_r": 0.788811846280409,
+   "m4_f1": 0.7481024667931688
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3360336206580161,
+    "cover": 0.8193045173870653,
+    "ghosts": 8.7,
+    "births": 11.295,
+    "m4_p": 0.627906976744186,
+    "m4_r": 0.8059701492537313,
+    "m4_f1": 0.7058823529411765
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.060630073691864,
+    "cover": 0.7509520182787509,
+    "ghosts": 18.94,
+    "births": 8.175,
+    "m4_p": 0.8099173553719008,
+    "m4_r": 0.7716535433070866,
+    "m4_f1": 0.7903225806451613
+   }
+  }
+ },
+ {
+  "name": "fit pv=1.0 chi2=9.21 cap=6.0 drop=True age=1.0",
+  "tracker": {
+   "gate_m": 6.0,
+   "max_age_s": 1.0,
+   "trail_s": 1.0,
+   "process_var": 1.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 9.21,
+   "drop_tentative": true,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.21642837563128,
+   "cover": 0.8361337377456652,
+   "ghosts": 18.4525,
+   "births": 8.575,
+   "m4_p": 0.7142032085561498,
+   "m4_r": 0.8371136443765425,
+   "m4_f1": 0.7649829402165851
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3496882206723098,
+    "cover": 0.8672408189795255,
+    "ghosts": 11.88,
+    "births": 9.8,
+    "m4_p": 0.6524064171122995,
+    "m4_r": 0.9104477611940298,
+    "m4_f1": 0.7601246105919003
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.0831685305902499,
+    "cover": 0.805026656511805,
+    "ghosts": 25.025,
+    "births": 7.35,
+    "m4_p": 0.776,
+    "m4_r": 0.7637795275590551,
+    "m4_f1": 0.7698412698412699
+   }
+  }
+ },
+ {
+  "name": "fit pv=1.0 chi2=16.0 cap=3.0 drop=False age=0.5",
+  "tracker": {
+   "gate_m": 3.0,
+   "max_age_s": 0.5,
+   "trail_s": 1.0,
+   "process_var": 1.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 16.0,
+   "drop_tentative": false,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2722205796453367,
+   "cover": 0.8104150531550243,
+   "ghosts": 16.4925,
+   "births": 10.9625,
+   "m4_p": 0.7428698752228164,
+   "m4_r": 0.829239628628511,
+   "m4_f1": 0.7742531766652447
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.4223816792768011,
+    "cover": 0.8404289892752681,
+    "ghosts": 10.445,
+    "births": 12.97,
+    "m4_p": 0.6524064171122995,
+    "m4_r": 0.9104477611940298,
+    "m4_f1": 0.7601246105919003
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.1220594800138723,
+    "cover": 0.7804011170347804,
+    "ghosts": 22.54,
+    "births": 8.955,
+    "m4_p": 0.8333333333333334,
+    "m4_r": 0.7480314960629921,
+    "m4_f1": 0.7883817427385892
+   }
+  }
+ },
+ {
+  "name": "fit pv=1.0 chi2=16.0 cap=3.0 drop=False age=1.0",
+  "tracker": {
+   "gate_m": 3.0,
+   "max_age_s": 1.0,
+   "trail_s": 1.0,
+   "process_var": 1.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 16.0,
+   "drop_tentative": false,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2474626693395114,
+   "cover": 0.8658533742927054,
+   "ghosts": 23.2275,
+   "births": 9.525,
+   "m4_p": 0.7375488917861799,
+   "m4_r": 0.8592960394876014,
+   "m4_f1": 0.7839339991315675
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.337963700384005,
+    "cover": 0.892915177120572,
+    "ghosts": 15.42,
+    "births": 11.215,
+    "m4_p": 0.6615384615384615,
+    "m4_r": 0.9626865671641791,
+    "m4_f1": 0.78419452887538
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.1569616382950176,
+    "cover": 0.8387915714648387,
+    "ghosts": 31.035,
+    "births": 7.835,
+    "m4_p": 0.8135593220338984,
+    "m4_r": 0.7559055118110236,
+    "m4_f1": 0.7836734693877551
+   }
+  }
+ },
+ {
+  "name": "fit pv=1.0 chi2=16.0 cap=3.0 drop=True age=0.5",
+  "tracker": {
+   "gate_m": 3.0,
+   "max_age_s": 0.5,
+   "trail_s": 1.0,
+   "process_var": 1.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 16.0,
+   "drop_tentative": true,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2267873358319985,
+   "cover": 0.7869407018949939,
+   "ghosts": 13.265,
+   "births": 12.370000000000001,
+   "m4_p": 0.7468470835522858,
+   "m4_r": 0.7807321659419438,
+   "m4_f1": 0.7558927417913934
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3646723686155418,
+    "cover": 0.8155671108222294,
+    "ghosts": 8.435,
+    "births": 14.675,
+    "m4_p": 0.630057803468208,
+    "m4_r": 0.8134328358208955,
+    "m4_f1": 0.7100977198697068
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.088902303048455,
+    "cover": 0.7583142929677583,
+    "ghosts": 18.095,
+    "births": 10.065,
+    "m4_p": 0.8636363636363636,
+    "m4_r": 0.7480314960629921,
+    "m4_f1": 0.8016877637130801
+   }
+  }
+ },
+ {
+  "name": "fit pv=1.0 chi2=16.0 cap=3.0 drop=True age=1.0",
+  "tracker": {
+   "gate_m": 3.0,
+   "max_age_s": 1.0,
+   "trail_s": 1.0,
+   "process_var": 1.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 16.0,
+   "drop_tentative": true,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2282366875020898,
+   "cover": 0.8343766653358418,
+   "ghosts": 17.6675,
+   "births": 11.195,
+   "m4_p": 0.7456140350877194,
+   "m4_r": 0.8404336584792573,
+   "m4_f1": 0.779993340505097
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.325464695059893,
+    "cover": 0.8622034449138771,
+    "ghosts": 11.605,
+    "births": 13.16,
+    "m4_p": 0.6578947368421053,
+    "m4_r": 0.9328358208955224,
+    "m4_f1": 0.7716049382716049
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.1310086799442864,
+    "cover": 0.8065498857578065,
+    "ghosts": 23.73,
+    "births": 9.23,
+    "m4_p": 0.8333333333333334,
+    "m4_r": 0.7480314960629921,
+    "m4_f1": 0.7883817427385892
+   }
+  }
+ },
+ {
+  "name": "fit pv=1.0 chi2=16.0 cap=6.0 drop=False age=0.5",
+  "tracker": {
+   "gate_m": 6.0,
+   "max_age_s": 0.5,
+   "trail_s": 1.0,
+   "process_var": 1.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 16.0,
+   "drop_tentative": false,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2480158600928728,
+   "cover": 0.8038546767353918,
+   "ghosts": 16.57,
+   "births": 8.0275,
+   "m4_p": 0.7499320221154717,
+   "m4_r": 0.8489246679985898,
+   "m4_f1": 0.7882255706020727
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3710688530291792,
+    "cover": 0.8344166395840104,
+    "ghosts": 10.75,
+    "births": 9.37,
+    "m4_p": 0.6524064171122995,
+    "m4_r": 0.9104477611940298,
+    "m4_f1": 0.7601246105919003
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.1249628671565663,
+    "cover": 0.7732927138867733,
+    "ghosts": 22.39,
+    "births": 6.685,
+    "m4_p": 0.847457627118644,
+    "m4_r": 0.7874015748031497,
+    "m4_f1": 0.8163265306122449
+   }
+  }
+ },
+ {
+  "name": "fit pv=1.0 chi2=16.0 cap=6.0 drop=False age=1.0",
+  "tracker": {
+   "gate_m": 6.0,
+   "max_age_s": 1.0,
+   "trail_s": 1.0,
+   "process_var": 1.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 16.0,
+   "drop_tentative": false,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.263121628410739,
+   "cover": 0.8568812182335706,
+   "ghosts": 22.675,
+   "births": 6.6875,
+   "m4_p": 0.7461361321464949,
+   "m4_r": 0.8595017040780351,
+   "m4_f1": 0.7889782924750589
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3957647751355446,
+    "cover": 0.8869028274293143,
+    "ghosts": 15.455,
+    "births": 7.665,
+    "m4_p": 0.6632124352331606,
+    "m4_r": 0.9552238805970149,
+    "m4_f1": 0.7828746177370031
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.1304784816859332,
+    "cover": 0.8268596090378268,
+    "ghosts": 29.895,
+    "births": 5.71,
+    "m4_p": 0.8290598290598291,
+    "m4_r": 0.7637795275590551,
+    "m4_f1": 0.7950819672131147
+   }
+  }
+ },
+ {
+  "name": "fit pv=1.0 chi2=16.0 cap=6.0 drop=True age=0.5",
+  "tracker": {
+   "gate_m": 6.0,
+   "max_age_s": 0.5,
+   "trail_s": 1.0,
+   "process_var": 1.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 16.0,
+   "drop_tentative": true,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2105730198475944,
+   "cover": 0.7843970361137012,
+   "ghosts": 13.712499999999999,
+   "births": 9.34,
+   "m4_p": 0.7442324415571129,
+   "m4_r": 0.7886061816899753,
+   "m4_f1": 0.7592155266015201
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3336942580705369,
+    "cover": 0.8178420539486513,
+    "ghosts": 8.78,
+    "births": 10.915,
+    "m4_p": 0.630057803468208,
+    "m4_r": 0.8134328358208955,
+    "m4_f1": 0.7100977198697068
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.0874517816246518,
+    "cover": 0.7509520182787509,
+    "ghosts": 18.645,
+    "births": 7.765,
+    "m4_p": 0.8584070796460177,
+    "m4_r": 0.7637795275590551,
+    "m4_f1": 0.8083333333333333
+   }
+  }
+ },
+ {
+  "name": "fit pv=1.0 chi2=16.0 cap=6.0 drop=True age=1.0",
+  "tracker": {
+   "gate_m": 6.0,
+   "max_age_s": 1.0,
+   "trail_s": 1.0,
+   "process_var": 1.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 16.0,
+   "drop_tentative": true,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2159236187834768,
+   "cover": 0.8309545767956461,
+   "ghosts": 17.96,
+   "births": 8.1975,
+   "m4_p": 0.7373840698308783,
+   "m4_r": 0.8369079797861088,
+   "m4_f1": 0.7754302005905712
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3420102797936984,
+    "cover": 0.8639909002274944,
+    "ghosts": 12.09,
+    "births": 9.42,
+    "m4_p": 0.6542553191489362,
+    "m4_r": 0.917910447761194,
+    "m4_f1": 0.7639751552795031
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.0898369577732552,
+    "cover": 0.797918253363798,
+    "ghosts": 23.83,
+    "births": 6.975,
+    "m4_p": 0.8205128205128205,
+    "m4_r": 0.7559055118110236,
+    "m4_f1": 0.7868852459016393
+   }
+  }
+ },
+ {
+  "name": "fit pv=4.0 chi2=9.21 cap=3.0 drop=False age=0.5",
+  "tracker": {
+   "gate_m": 3.0,
+   "max_age_s": 0.5,
+   "trail_s": 1.0,
+   "process_var": 4.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 9.21,
+   "drop_tentative": false,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2448837904856564,
+   "cover": 0.8147666564111475,
+   "ghosts": 16.775000000000002,
+   "births": 11.1625,
+   "m4_p": 0.7175075563822367,
+   "m4_r": 0.8095545892584322,
+   "m4_f1": 0.7519631317422311
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.385551566460998,
+    "cover": 0.8448163795905103,
+    "ghosts": 10.63,
+    "births": 13.205,
+    "m4_p": 0.6524064171122995,
+    "m4_r": 0.9104477611940298,
+    "m4_f1": 0.7601246105919003
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.1042160145103148,
+    "cover": 0.7847169332317847,
+    "ghosts": 22.92,
+    "births": 9.12,
+    "m4_p": 0.782608695652174,
+    "m4_r": 0.7086614173228346,
+    "m4_f1": 0.743801652892562
+   }
+  }
+ },
+ {
+  "name": "fit pv=4.0 chi2=9.21 cap=3.0 drop=False age=1.0",
+  "tracker": {
+   "gate_m": 3.0,
+   "max_age_s": 1.0,
+   "trail_s": 1.0,
+   "process_var": 4.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 9.21,
+   "drop_tentative": false,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2347882849280687,
+   "cover": 0.8696058588634294,
+   "ghosts": 23.8975,
+   "births": 9.6975,
+   "m4_p": 0.7029738302934179,
+   "m4_r": 0.8595017040780351,
+   "m4_f1": 0.7676758090538104
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3257658286500273,
+    "cover": 0.8976275593110172,
+    "ghosts": 15.445,
+    "births": 11.37,
+    "m4_p": 0.6597938144329897,
+    "m4_r": 0.9552238805970149,
+    "m4_f1": 0.7804878048780488
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.1438107412061103,
+    "cover": 0.8415841584158416,
+    "ghosts": 32.35,
+    "births": 8.025,
+    "m4_p": 0.7461538461538462,
+    "m4_r": 0.7637795275590551,
+    "m4_f1": 0.754863813229572
+   }
+  }
+ },
+ {
+  "name": "fit pv=4.0 chi2=9.21 cap=3.0 drop=True age=0.5",
+  "tracker": {
+   "gate_m": 3.0,
+   "max_age_s": 0.5,
+   "trail_s": 1.0,
+   "process_var": 4.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 9.21,
+   "drop_tentative": true,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2092260975226683,
+   "cover": 0.790672931196522,
+   "ghosts": 13.274999999999999,
+   "births": 12.5875,
+   "m4_p": 0.713953488372093,
+   "m4_r": 0.7651897990363146,
+   "m4_f1": 0.7331064657267866
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3428073283319208,
+    "cover": 0.821254468638284,
+    "ghosts": 8.37,
+    "births": 14.925,
+    "m4_p": 0.627906976744186,
+    "m4_r": 0.8059701492537313,
+    "m4_f1": 0.7058823529411765
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.0756448667134157,
+    "cover": 0.7600913937547601,
+    "ghosts": 18.18,
+    "births": 10.25,
+    "m4_p": 0.8,
+    "m4_r": 0.7244094488188977,
+    "m4_f1": 0.7603305785123967
+   }
+  }
+ },
+ {
+  "name": "fit pv=4.0 chi2=9.21 cap=3.0 drop=True age=1.0",
+  "tracker": {
+   "gate_m": 3.0,
+   "max_age_s": 1.0,
+   "trail_s": 1.0,
+   "process_var": 4.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 9.21,
+   "drop_tentative": true,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2267246689966544,
+   "cover": 0.8407594678119845,
+   "ghosts": 17.950000000000003,
+   "births": 11.415,
+   "m4_p": 0.7146329606222654,
+   "m4_r": 0.8253026207544952,
+   "m4_f1": 0.7590945633604662
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3296642400458583,
+    "cover": 0.8706532336691583,
+    "ghosts": 11.48,
+    "births": 13.37,
+    "m4_p": 0.6524064171122995,
+    "m4_r": 0.9104477611940298,
+    "m4_f1": 0.7601246105919003
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.1237850979474504,
+    "cover": 0.8108657019548109,
+    "ghosts": 24.42,
+    "births": 9.46,
+    "m4_p": 0.7768595041322314,
+    "m4_r": 0.7401574803149606,
+    "m4_f1": 0.7580645161290323
+   }
+  }
+ },
+ {
+  "name": "fit pv=4.0 chi2=9.21 cap=6.0 drop=False age=0.5",
+  "tracker": {
+   "gate_m": 6.0,
+   "max_age_s": 0.5,
+   "trail_s": 1.0,
+   "process_var": 4.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 9.21,
+   "drop_tentative": false,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2326218015178965,
+   "cover": 0.808937511710722,
+   "ghosts": 16.85,
+   "births": 8.287500000000001,
+   "m4_p": 0.716033717030726,
+   "m4_r": 0.8174286050064637,
+   "m4_f1": 0.7555725093775828
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3571506025159856,
+    "cover": 0.8402664933376666,
+    "ghosts": 10.855,
+    "births": 9.63,
+    "m4_p": 0.6524064171122995,
+    "m4_r": 0.9104477611940298,
+    "m4_f1": 0.7601246105919003
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.1080930005198073,
+    "cover": 0.7776085300837776,
+    "ghosts": 22.845,
+    "births": 6.945,
+    "m4_p": 0.7796610169491526,
+    "m4_r": 0.7244094488188977,
+    "m4_f1": 0.7510204081632653
+   }
+  }
+ },
+ {
+  "name": "fit pv=4.0 chi2=9.21 cap=6.0 drop=False age=1.0",
+  "tracker": {
+   "gate_m": 6.0,
+   "max_age_s": 1.0,
+   "trail_s": 1.0,
+   "process_var": 4.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 9.21,
+   "drop_tentative": false,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2535220904834068,
+   "cover": 0.8660818133012022,
+   "ghosts": 22.7325,
+   "births": 6.9,
+   "m4_p": 0.7123322708849802,
+   "m4_r": 0.874632741802797,
+   "m4_f1": 0.7785828927492446
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3536717030354404,
+    "cover": 0.8921026974325642,
+    "ghosts": 14.79,
+    "births": 7.875,
+    "m4_p": 0.6649746192893401,
+    "m4_r": 0.9776119402985075,
+    "m4_f1": 0.7915407854984894
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.1533724779313734,
+    "cover": 0.8400609291698401,
+    "ghosts": 30.675,
+    "births": 5.925,
+    "m4_p": 0.7596899224806202,
+    "m4_r": 0.7716535433070866,
+    "m4_f1": 0.765625
+   }
+  }
+ },
+ {
+  "name": "fit pv=4.0 chi2=9.21 cap=6.0 drop=True age=0.5",
+  "tracker": {
+   "gate_m": 6.0,
+   "max_age_s": 0.5,
+   "trail_s": 1.0,
+   "process_var": 4.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 9.21,
+   "drop_tentative": true,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2118889388672154,
+   "cover": 0.7900486068706368,
+   "ghosts": 13.587499999999999,
+   "births": 9.662500000000001,
+   "m4_p": 0.7166083556287302,
+   "m4_r": 0.7612527911622987,
+   "m4_f1": 0.732107843137255
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3409080638302038,
+    "cover": 0.8248293792655184,
+    "ghosts": 8.67,
+    "births": 11.24,
+    "m4_p": 0.627906976744186,
+    "m4_r": 0.8059701492537313,
+    "m4_f1": 0.7058823529411765
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.082869813904227,
+    "cover": 0.7552678344757553,
+    "ghosts": 18.505,
+    "births": 8.085,
+    "m4_p": 0.8053097345132744,
+    "m4_r": 0.7165354330708661,
+    "m4_f1": 0.7583333333333333
+   }
+  }
+ },
+ {
+  "name": "fit pv=4.0 chi2=9.21 cap=6.0 drop=True age=1.0",
+  "tracker": {
+   "gate_m": 6.0,
+   "max_age_s": 1.0,
+   "trail_s": 1.0,
+   "process_var": 4.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 9.21,
+   "drop_tentative": true,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2322002036250232,
+   "cover": 0.8402517247299841,
+   "ghosts": 18.0125,
+   "births": 8.43,
+   "m4_p": 0.7150920974450387,
+   "m4_r": 0.8134915971324479,
+   "m4_f1": 0.7530131249680814
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3553561816022959,
+    "cover": 0.8706532336691583,
+    "ghosts": 11.655,
+    "births": 9.605,
+    "m4_p": 0.6524064171122995,
+    "m4_r": 0.9104477611940298,
+    "m4_f1": 0.7601246105919003
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.1090442256477506,
+    "cover": 0.8098502157908098,
+    "ghosts": 24.37,
+    "births": 7.255,
+    "m4_p": 0.7777777777777778,
+    "m4_r": 0.7165354330708661,
+    "m4_f1": 0.7459016393442623
+   }
+  }
+ },
+ {
+  "name": "fit pv=4.0 chi2=16.0 cap=3.0 drop=False age=0.5",
+  "tracker": {
+   "gate_m": 3.0,
+   "max_age_s": 0.5,
+   "trail_s": 1.0,
+   "process_var": 4.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 16.0,
+   "drop_tentative": false,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2475346815385264,
+   "cover": 0.8119232043951377,
+   "ghosts": 16.1725,
+   "births": 10.9,
+   "m4_p": 0.7332794751273012,
+   "m4_r": 0.8022975672817017,
+   "m4_f1": 0.756566777654458
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3753901316170245,
+    "cover": 0.8431914202144947,
+    "ghosts": 10.195,
+    "births": 12.955,
+    "m4_p": 0.6467391304347826,
+    "m4_r": 0.8880597014925373,
+    "m4_f1": 0.7484276729559748
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.1196792314600281,
+    "cover": 0.7806549885757806,
+    "ghosts": 22.15,
+    "births": 8.845,
+    "m4_p": 0.8198198198198198,
+    "m4_r": 0.7165354330708661,
+    "m4_f1": 0.7647058823529411
+   }
+  }
+ },
+ {
+  "name": "fit pv=4.0 chi2=16.0 cap=3.0 drop=False age=1.0",
+  "tracker": {
+   "gate_m": 3.0,
+   "max_age_s": 1.0,
+   "trail_s": 1.0,
+   "process_var": 4.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 16.0,
+   "drop_tentative": false,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2322097084711416,
+   "cover": 0.8655691198479114,
+   "ghosts": 22.85,
+   "births": 9.455,
+   "m4_p": 0.7358798131994009,
+   "m4_r": 0.8516276883300036,
+   "m4_f1": 0.7795881647341063
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.324310538449894,
+    "cover": 0.894377640558986,
+    "ghosts": 15.28,
+    "births": 11.185,
+    "m4_p": 0.6597938144329897,
+    "m4_r": 0.9552238805970149,
+    "m4_f1": 0.7804878048780488
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.1401088784923892,
+    "cover": 0.8367605991368368,
+    "ghosts": 30.42,
+    "births": 7.725,
+    "m4_p": 0.811965811965812,
+    "m4_r": 0.7480314960629921,
+    "m4_f1": 0.7786885245901639
+   }
+  }
+ },
+ {
+  "name": "fit pv=4.0 chi2=16.0 cap=3.0 drop=True age=0.5",
+  "tracker": {
+   "gate_m": 3.0,
+   "max_age_s": 0.5,
+   "trail_s": 1.0,
+   "process_var": 4.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 16.0,
+   "drop_tentative": true,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2135759088938944,
+   "cover": 0.7875704303762043,
+   "ghosts": 13.0225,
+   "births": 12.295,
+   "m4_p": 0.7321373097235166,
+   "m4_r": 0.7728581501939124,
+   "m4_f1": 0.7446524064171123
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3332833230917733,
+    "cover": 0.8178420539486513,
+    "ghosts": 8.275,
+    "births": 14.605,
+    "m4_p": 0.6264367816091954,
+    "m4_r": 0.8134328358208955,
+    "m4_f1": 0.7077922077922078
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.0938684946960155,
+    "cover": 0.7572988068037573,
+    "ghosts": 17.77,
+    "births": 9.985,
+    "m4_p": 0.8378378378378378,
+    "m4_r": 0.7322834645669292,
+    "m4_f1": 0.7815126050420168
+   }
+  }
+ },
+ {
+  "name": "fit pv=4.0 chi2=16.0 cap=3.0 drop=True age=1.0",
+  "tracker": {
+   "gate_m": 3.0,
+   "max_age_s": 1.0,
+   "trail_s": 1.0,
+   "process_var": 4.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 16.0,
+   "drop_tentative": true,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2164343162584463,
+   "cover": 0.8338131068175441,
+   "ghosts": 17.1475,
+   "births": 11.100000000000001,
+   "m4_p": 0.7402686091509219,
+   "m4_r": 0.8404336584792573,
+   "m4_f1": 0.7771773680864591
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3124993530840663,
+    "cover": 0.8628534286642834,
+    "ghosts": 11.34,
+    "births": 13.07,
+    "m4_p": 0.6544502617801047,
+    "m4_r": 0.9328358208955224,
+    "m4_f1": 0.7692307692307693
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.1203692794328264,
+    "cover": 0.8047727849708047,
+    "ghosts": 22.955,
+    "births": 9.13,
+    "m4_p": 0.8260869565217391,
+    "m4_r": 0.7480314960629921,
+    "m4_f1": 0.7851239669421488
+   }
+  }
+ },
+ {
+  "name": "fit pv=4.0 chi2=16.0 cap=6.0 drop=False age=0.5",
+  "tracker": {
+   "gate_m": 6.0,
+   "max_age_s": 0.5,
+   "trail_s": 1.0,
+   "process_var": 4.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 16.0,
+   "drop_tentative": false,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2318741308499952,
+   "cover": 0.8060940596947123,
+   "ghosts": 16.31,
+   "births": 7.945,
+   "m4_p": 0.7324604743083004,
+   "m4_r": 0.7983605594076859,
+   "m4_f1": 0.7539606719210254
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3408906821172941,
+    "cover": 0.838641533961651,
+    "ghosts": 10.495,
+    "births": 9.285,
+    "m4_p": 0.6467391304347826,
+    "m4_r": 0.8880597014925373,
+    "m4_f1": 0.7484276729559748
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.1228575795826963,
+    "cover": 0.7735465854277735,
+    "ghosts": 22.125,
+    "births": 6.605,
+    "m4_p": 0.8181818181818182,
+    "m4_r": 0.7086614173228346,
+    "m4_f1": 0.759493670886076
+   }
+  }
+ },
+ {
+  "name": "fit pv=4.0 chi2=16.0 cap=6.0 drop=False age=1.0",
+  "tracker": {
+   "gate_m": 6.0,
+   "max_age_s": 1.0,
+   "trail_s": 1.0,
+   "process_var": 4.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 16.0,
+   "drop_tentative": false,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2584921095830883,
+   "cover": 0.8572874580775744,
+   "ghosts": 22.145,
+   "births": 6.5425,
+   "m4_p": 0.7385925593904079,
+   "m4_r": 0.8476906804559878,
+   "m4_f1": 0.77867365450514
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3748979810195212,
+    "cover": 0.887715307117322,
+    "ghosts": 15.28,
+    "births": 7.525,
+    "m4_p": 0.6597938144329897,
+    "m4_r": 0.9552238805970149,
+    "m4_f1": 0.7804878048780488
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.1420862381466557,
+    "cover": 0.8268596090378268,
+    "ghosts": 29.01,
+    "births": 5.56,
+    "m4_p": 0.8173913043478261,
+    "m4_r": 0.7401574803149606,
+    "m4_f1": 0.7768595041322314
+   }
+  }
+ },
+ {
+  "name": "fit pv=4.0 chi2=16.0 cap=6.0 drop=True age=0.5",
+  "tracker": {
+   "gate_m": 6.0,
+   "max_age_s": 0.5,
+   "trail_s": 1.0,
+   "process_var": 4.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 16.0,
+   "drop_tentative": true,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2121677895499356,
+   "cover": 0.7884490800271247,
+   "ghosts": 13.4975,
+   "births": 9.2525,
+   "m4_p": 0.7306495834651481,
+   "m4_r": 0.7649841344458808,
+   "m4_f1": 0.739489324235087
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3219142465533387,
+    "cover": 0.822391940201495,
+    "ghosts": 8.675,
+    "births": 10.79,
+    "m4_p": 0.6264367816091954,
+    "m4_r": 0.8134328358208955,
+    "m4_f1": 0.7077922077922078
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.1024213325465326,
+    "cover": 0.7545062198527545,
+    "ghosts": 18.32,
+    "births": 7.715,
+    "m4_p": 0.8348623853211009,
+    "m4_r": 0.7165354330708661,
+    "m4_f1": 0.7711864406779662
+   }
+  }
+ },
+ {
+  "name": "fit pv=4.0 chi2=16.0 cap=6.0 drop=True age=1.0",
+  "tracker": {
+   "gate_m": 6.0,
+   "max_age_s": 1.0,
+   "trail_s": 1.0,
+   "process_var": 4.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 16.0,
+   "drop_tentative": true,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.234113642040124,
+   "cover": 0.8326657345117527,
+   "ghosts": 17.642500000000002,
+   "births": 8.07,
+   "m4_p": 0.7262977262977264,
+   "m4_r": 0.8093489246679986,
+   "m4_f1": 0.7547545333923042
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.36347196840482,
+    "cover": 0.8651283717907052,
+    "ghosts": 11.88,
+    "births": 9.295,
+    "m4_p": 0.6507936507936508,
+    "m4_r": 0.917910447761194,
+    "m4_f1": 0.7616099071207431
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.104755315675428,
+    "cover": 0.8002030972328003,
+    "ghosts": 23.405,
+    "births": 6.845,
+    "m4_p": 0.8018018018018018,
+    "m4_r": 0.7007874015748031,
+    "m4_f1": 0.7478991596638656
+   }
+  }
+ },
+ {
+  "name": "fit pv=10.0 chi2=9.21 cap=3.0 drop=False age=0.5",
+  "tracker": {
+   "gate_m": 3.0,
+   "max_age_s": 0.5,
+   "trail_s": 1.0,
+   "process_var": 10.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 9.21,
+   "drop_tentative": false,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.248615521621658,
+   "cover": 0.8151830238897493,
+   "ghosts": 16.625,
+   "births": 11.09,
+   "m4_p": 0.7289385419749432,
+   "m4_r": 0.7979492302268187,
+   "m4_f1": 0.7510063559322033
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3819179796711418,
+    "cover": 0.8451413714657133,
+    "ghosts": 10.59,
+    "births": 13.13,
+    "m4_p": 0.6505376344086021,
+    "m4_r": 0.9029850746268657,
+    "m4_f1": 0.75625
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.1153130635721742,
+    "cover": 0.7852246763137852,
+    "ghosts": 22.66,
+    "births": 9.05,
+    "m4_p": 0.8073394495412844,
+    "m4_r": 0.6929133858267716,
+    "m4_f1": 0.7457627118644068
+   }
+  }
+ },
+ {
+  "name": "fit pv=10.0 chi2=9.21 cap=3.0 drop=False age=1.0",
+  "tracker": {
+   "gate_m": 3.0,
+   "max_age_s": 1.0,
+   "trail_s": 1.0,
+   "process_var": 10.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 9.21,
+   "drop_tentative": false,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2544312959508184,
+   "cover": 0.8702252328180244,
+   "ghosts": 23.58,
+   "births": 9.6375,
+   "m4_p": 0.7242058503059257,
+   "m4_r": 0.8595017040780351,
+   "m4_f1": 0.7782439024390244
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3560714049841023,
+    "cover": 0.8963275918102047,
+    "ghosts": 15.225,
+    "births": 11.25,
+    "m4_p": 0.6597938144329897,
+    "m4_r": 0.9552238805970149,
+    "m4_f1": 0.7804878048780488
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.1527911869175347,
+    "cover": 0.8441228738258442,
+    "ghosts": 31.935,
+    "births": 8.025,
+    "m4_p": 0.7886178861788617,
+    "m4_r": 0.7637795275590551,
+    "m4_f1": 0.776
+   }
+  }
+ },
+ {
+  "name": "fit pv=10.0 chi2=9.21 cap=3.0 drop=True age=0.5",
+  "tracker": {
+   "gate_m": 3.0,
+   "max_age_s": 0.5,
+   "trail_s": 1.0,
+   "process_var": 10.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 9.21,
+   "drop_tentative": true,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2201424536236432,
+   "cover": 0.7914397230828305,
+   "ghosts": 13.1375,
+   "births": 12.4625,
+   "m4_p": 0.7267975250693408,
+   "m4_r": 0.757315783288283,
+   "m4_f1": 0.734297108673978
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.349992778052658,
+    "cover": 0.8230419239519012,
+    "ghosts": 8.33,
+    "births": 14.795,
+    "m4_p": 0.627906976744186,
+    "m4_r": 0.8059701492537313,
+    "m4_f1": 0.7058823529411765
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.0902921291946284,
+    "cover": 0.7598375222137599,
+    "ghosts": 17.945,
+    "births": 10.13,
+    "m4_p": 0.8256880733944955,
+    "m4_r": 0.7086614173228346,
+    "m4_f1": 0.7627118644067796
+   }
+  }
+ },
+ {
+  "name": "fit pv=10.0 chi2=9.21 cap=3.0 drop=True age=1.0",
+  "tracker": {
+   "gate_m": 3.0,
+   "max_age_s": 1.0,
+   "trail_s": 1.0,
+   "process_var": 10.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 9.21,
+   "drop_tentative": true,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2519097607742573,
+   "cover": 0.8401045336902881,
+   "ghosts": 17.6475,
+   "births": 11.33,
+   "m4_p": 0.7297119804859743,
+   "m4_r": 0.8174286050064637,
+   "m4_f1": 0.7618050438851618
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3877290433376581,
+    "cover": 0.8716282092947676,
+    "ghosts": 11.495,
+    "births": 13.225,
+    "m4_p": 0.6524064171122995,
+    "m4_r": 0.9104477611940298,
+    "m4_f1": 0.7601246105919003
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.1160904782108565,
+    "cover": 0.8085808580858086,
+    "ghosts": 23.8,
+    "births": 9.435,
+    "m4_p": 0.8070175438596491,
+    "m4_r": 0.7244094488188977,
+    "m4_f1": 0.7634854771784232
+   }
+  }
+ },
+ {
+  "name": "fit pv=10.0 chi2=9.21 cap=6.0 drop=False age=0.5",
+  "tracker": {
+   "gate_m": 6.0,
+   "max_age_s": 0.5,
+   "trail_s": 1.0,
+   "process_var": 10.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 9.21,
+   "drop_tentative": false,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.247634492973762,
+   "cover": 0.8097499913987298,
+   "ghosts": 16.6625,
+   "births": 8.1825,
+   "m4_p": 0.7234989056998763,
+   "m4_r": 0.8058232459748502,
+   "m4_f1": 0.753125
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3674512484655845,
+    "cover": 0.8418914527136822,
+    "ghosts": 10.735,
+    "births": 9.53,
+    "m4_p": 0.6505376344086021,
+    "m4_r": 0.9029850746268657,
+    "m4_f1": 0.75625
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.1278177374819396,
+    "cover": 0.7776085300837776,
+    "ghosts": 22.59,
+    "births": 6.835,
+    "m4_p": 0.7964601769911505,
+    "m4_r": 0.7086614173228346,
+    "m4_f1": 0.75
+   }
+  }
+ },
+ {
+  "name": "fit pv=10.0 chi2=9.21 cap=6.0 drop=False age=1.0",
+  "tracker": {
+   "gate_m": 6.0,
+   "max_age_s": 1.0,
+   "trail_s": 1.0,
+   "process_var": 10.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 9.21,
+   "drop_tentative": false,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2860817966909253,
+   "cover": 0.8668130450204092,
+   "ghosts": 22.4025,
+   "births": 6.7425,
+   "m4_p": 0.72448730964467,
+   "m4_r": 0.874632741802797,
+   "m4_f1": 0.7846592816381336
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3899932411767337,
+    "cover": 0.8935651608709783,
+    "ghosts": 14.725,
+    "births": 7.715,
+    "m4_p": 0.6649746192893401,
+    "m4_r": 0.9776119402985075,
+    "m4_f1": 0.7915407854984894
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.1821703522051168,
+    "cover": 0.8400609291698401,
+    "ghosts": 30.08,
+    "births": 5.77,
+    "m4_p": 0.784,
+    "m4_r": 0.7716535433070866,
+    "m4_f1": 0.7777777777777778
+   }
+  }
+ },
+ {
+  "name": "fit pv=10.0 chi2=9.21 cap=6.0 drop=True age=0.5",
+  "tracker": {
+   "gate_m": 6.0,
+   "max_age_s": 0.5,
+   "trail_s": 1.0,
+   "process_var": 10.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 9.21,
+   "drop_tentative": true,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2336500024714219,
+   "cover": 0.7889061849361356,
+   "ghosts": 13.45,
+   "births": 9.54,
+   "m4_p": 0.7298413388393827,
+   "m4_r": 0.7533787754142672,
+   "m4_f1": 0.7332830568124686
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3557405062367613,
+    "cover": 0.8248293792655184,
+    "ghosts": 8.6,
+    "births": 11.1,
+    "m4_p": 0.627906976744186,
+    "m4_r": 0.8059701492537313,
+    "m4_f1": 0.7058823529411765
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.1115594987060824,
+    "cover": 0.752982990606753,
+    "ghosts": 18.3,
+    "births": 7.98,
+    "m4_p": 0.8317757009345794,
+    "m4_r": 0.7007874015748031,
+    "m4_f1": 0.7606837606837606
+   }
+  }
+ },
+ {
+  "name": "fit pv=10.0 chi2=9.21 cap=6.0 drop=True age=1.0",
+  "tracker": {
+   "gate_m": 6.0,
+   "max_age_s": 1.0,
+   "trail_s": 1.0,
+   "process_var": 10.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 9.21,
+   "drop_tentative": true,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.24748330606762,
+   "cover": 0.8374643150422889,
+   "ghosts": 17.7825,
+   "births": 8.307500000000001,
+   "m4_p": 0.7307486631016042,
+   "m4_r": 0.8056175813844164,
+   "m4_f1": 0.7555897314562877
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3697663905479645,
+    "cover": 0.8724406889827754,
+    "ghosts": 11.73,
+    "births": 9.5,
+    "m4_p": 0.6524064171122995,
+    "m4_r": 0.9104477611940298,
+    "m4_f1": 0.7601246105919003
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.1252002215872754,
+    "cover": 0.8024879411018024,
+    "ghosts": 23.835,
+    "births": 7.115,
+    "m4_p": 0.8090909090909091,
+    "m4_r": 0.7007874015748031,
+    "m4_f1": 0.7510548523206751
+   }
+  }
+ },
+ {
+  "name": "fit pv=10.0 chi2=16.0 cap=3.0 drop=False age=0.5",
+  "tracker": {
+   "gate_m": 3.0,
+   "max_age_s": 0.5,
+   "trail_s": 1.0,
+   "process_var": 10.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 16.0,
+   "drop_tentative": false,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2472772873777171,
+   "cover": 0.8120044523639385,
+   "ghosts": 16.0325,
+   "births": 10.8375,
+   "m4_p": 0.7205357142857143,
+   "m4_r": 0.7687154777294629,
+   "m4_f1": 0.736740193091495
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.370816785824024,
+    "cover": 0.8433539161520962,
+    "ghosts": 9.995,
+    "births": 12.875,
+    "m4_p": 0.6285714285714286,
+    "m4_r": 0.8208955223880597,
+    "m4_f1": 0.7119741100323624
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.12373778893141,
+    "cover": 0.7806549885757806,
+    "ghosts": 22.07,
+    "births": 8.8,
+    "m4_p": 0.8125,
+    "m4_r": 0.7165354330708661,
+    "m4_f1": 0.7615062761506276
+   }
+  }
+ },
+ {
+  "name": "fit pv=10.0 chi2=16.0 cap=3.0 drop=False age=1.0",
+  "tracker": {
+   "gate_m": 3.0,
+   "max_age_s": 1.0,
+   "trail_s": 1.0,
+   "process_var": 10.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 16.0,
+   "drop_tentative": false,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2494052415675823,
+   "cover": 0.8645738889531062,
+   "ghosts": 22.2575,
+   "births": 9.3775,
+   "m4_p": 0.7222550177095632,
+   "m4_r": 0.818456927958632,
+   "m4_f1": 0.7613821968150265
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3493786710129192,
+    "cover": 0.8934026649333766,
+    "ghosts": 14.425,
+    "births": 11.075,
+    "m4_p": 0.6428571428571429,
+    "m4_r": 0.8731343283582089,
+    "m4_f1": 0.740506329113924
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.149431812122245,
+    "cover": 0.8357451129728357,
+    "ghosts": 30.09,
+    "births": 7.68,
+    "m4_p": 0.8016528925619835,
+    "m4_r": 0.7637795275590551,
+    "m4_f1": 0.782258064516129
+   }
+  }
+ },
+ {
+  "name": "fit pv=10.0 chi2=16.0 cap=3.0 drop=True age=0.5",
+  "tracker": {
+   "gate_m": 3.0,
+   "max_age_s": 0.5,
+   "trail_s": 1.0,
+   "process_var": 10.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 16.0,
+   "drop_tentative": true,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2188397739127772,
+   "cover": 0.7888247100753174,
+   "ghosts": 12.865,
+   "births": 12.21,
+   "m4_p": 0.7287001287001287,
+   "m4_r": 0.7726524856034787,
+   "m4_f1": 0.7425416768649207
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.341524033688938,
+    "cover": 0.8206044848878778,
+    "ghosts": 8.165,
+    "births": 14.505,
+    "m4_p": 0.6285714285714286,
+    "m4_r": 0.8208955223880597,
+    "m4_f1": 0.7119741100323624
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.0961555141366164,
+    "cover": 0.7570449352627571,
+    "ghosts": 17.565,
+    "births": 9.915,
+    "m4_p": 0.8288288288288288,
+    "m4_r": 0.7244094488188977,
+    "m4_f1": 0.773109243697479
+   }
+  }
+ },
+ {
+  "name": "fit pv=10.0 chi2=16.0 cap=3.0 drop=True age=1.0",
+  "tracker": {
+   "gate_m": 3.0,
+   "max_age_s": 1.0,
+   "trail_s": 1.0,
+   "process_var": 10.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 16.0,
+   "drop_tentative": true,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2428003776224985,
+   "cover": 0.8345342109021532,
+   "ghosts": 16.985,
+   "births": 11.025,
+   "m4_p": 0.729744651483782,
+   "m4_r": 0.8250969561640615,
+   "m4_f1": 0.7651024742215286
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.360501343164242,
+    "cover": 0.8648033799155022,
+    "ghosts": 11.175,
+    "births": 12.97,
+    "m4_p": 0.6507936507936508,
+    "m4_r": 0.917910447761194,
+    "m4_f1": 0.7616099071207431
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.125099412080755,
+    "cover": 0.8042650418888042,
+    "ghosts": 22.795,
+    "births": 9.08,
+    "m4_p": 0.808695652173913,
+    "m4_r": 0.7322834645669292,
+    "m4_f1": 0.768595041322314
+   }
+  }
+ },
+ {
+  "name": "fit pv=10.0 chi2=16.0 cap=6.0 drop=False age=0.5",
+  "tracker": {
+   "gate_m": 6.0,
+   "max_age_s": 0.5,
+   "trail_s": 1.0,
+   "process_var": 10.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 16.0,
+   "drop_tentative": false,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.252603929292166,
+   "cover": 0.804824701989711,
+   "ghosts": 16.1,
+   "births": 7.8475,
+   "m4_p": 0.7202214684756585,
+   "m4_r": 0.7797038429897756,
+   "m4_f1": 0.74078629005307
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3704716236515382,
+    "cover": 0.838641533961651,
+    "ghosts": 10.22,
+    "births": 9.21,
+    "m4_p": 0.6368715083798883,
+    "m4_r": 0.8507462686567164,
+    "m4_f1": 0.7284345047923323
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.1347362349327939,
+    "cover": 0.771007870017771,
+    "ghosts": 21.98,
+    "births": 6.485,
+    "m4_p": 0.8035714285714286,
+    "m4_r": 0.7086614173228346,
+    "m4_f1": 0.7531380753138075
+   }
+  }
+ },
+ {
+  "name": "fit pv=10.0 chi2=16.0 cap=6.0 drop=False age=1.0",
+  "tracker": {
+   "gate_m": 6.0,
+   "max_age_s": 1.0,
+   "trail_s": 1.0,
+   "process_var": 10.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 16.0,
+   "drop_tentative": false,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2708598423317192,
+   "cover": 0.8569372605618852,
+   "ghosts": 21.642500000000002,
+   "births": 6.4350000000000005,
+   "m4_p": 0.7341197822141561,
+   "m4_r": 0.8364966506052416,
+   "m4_f1": 0.772633744855967
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3860656320704083,
+    "cover": 0.8903152421189471,
+    "ghosts": 14.755,
+    "births": 7.43,
+    "m4_p": 0.6578947368421053,
+    "m4_r": 0.9328358208955224,
+    "m4_f1": 0.7716049382716049
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.15565405259303,
+    "cover": 0.8235592790048235,
+    "ghosts": 28.53,
+    "births": 5.44,
+    "m4_p": 0.8103448275862069,
+    "m4_r": 0.7401574803149606,
+    "m4_f1": 0.7736625514403292
+   }
+  }
+ },
+ {
+  "name": "fit pv=10.0 chi2=16.0 cap=6.0 drop=True age=0.5",
+  "tracker": {
+   "gate_m": 6.0,
+   "max_age_s": 0.5,
+   "trail_s": 1.0,
+   "process_var": 10.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 16.0,
+   "drop_tentative": true,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2304839106138652,
+   "cover": 0.7874488987610293,
+   "ghosts": 13.3975,
+   "births": 9.1775,
+   "m4_p": 0.7260624275018455,
+   "m4_r": 0.761047126571865,
+   "m4_f1": 0.7352520360994936
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3470020342509086,
+    "cover": 0.8236919077023075,
+    "ghosts": 8.495,
+    "births": 10.745,
+    "m4_p": 0.6264367816091954,
+    "m4_r": 0.8134328358208955,
+    "m4_f1": 0.7077922077922078
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.1139657869768218,
+    "cover": 0.7512058898197512,
+    "ghosts": 18.3,
+    "births": 7.61,
+    "m4_p": 0.8256880733944955,
+    "m4_r": 0.7086614173228346,
+    "m4_f1": 0.7627118644067796
+   }
+  }
+ },
+ {
+  "name": "fit pv=10.0 chi2=16.0 cap=6.0 drop=True age=1.0",
+  "tracker": {
+   "gate_m": 6.0,
+   "max_age_s": 1.0,
+   "trail_s": 1.0,
+   "process_var": 10.0,
+   "measurement_var": 1.0,
+   "initial_velocity_var": 25.0,
+   "gate_chi2": 16.0,
+   "drop_tentative": true,
+   "noise_model": {
+    "radial": [
+     0.1,
+     0.009
+    ],
+    "tangential": [
+     0.05,
+     0.01
+    ]
+   }
+  },
+  "mean": {
+   "pos_med": 1.2502541761245243,
+   "cover": 0.8330872792536622,
+   "ghosts": 17.63,
+   "births": 7.9825,
+   "m4_p": 0.7172887172887172,
+   "m4_r": 0.8014749089199671,
+   "m4_f1": 0.7463511720477665
+  },
+  "per_scene": {
+   "COMPLEX CITY": {
+    "pos_med": 1.3702510670671413,
+    "cover": 0.8672408189795255,
+    "ghosts": 11.72,
+    "births": 9.225,
+    "m4_p": 0.6507936507936508,
+    "m4_r": 0.917910447761194,
+    "m4_f1": 0.7616099071207431
+   },
+   "COMPLEX URBAN": {
+    "pos_med": 1.130257285181907,
+    "cover": 0.7989337395277989,
+    "ghosts": 23.54,
+    "births": 6.74,
+    "m4_p": 0.7837837837837838,
+    "m4_r": 0.6850393700787402,
+    "m4_f1": 0.7310924369747899
+   }
+  }
+ }
+]

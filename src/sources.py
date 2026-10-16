@@ -182,3 +182,105 @@ class WebcamSource:
 
     def close(self):
         self.capture.release()
+
+
+_PHENIKAA_CLASS = {"Rider": "rider", "Pedestrian": "person", "Car": "car", "Bus": "car", "Truck": "car"}
+
+
+def _stamp(path):
+    sec, nsec = Path(path).stem.split("-")
+    return int(sec) + int(nsec) / 1e9
+
+
+class PhenikaaSource:
+    """Six synchronized Phenikaa cameras; CAM_P_F timestamps are the master clock.
+
+    Label z is the box centre. Ego frame = LiDAR frame.
+    """
+
+    frame_period_s = 0.1
+    MASTER = "CAM_P_F"
+    TOLERANCE_S = 0.05
+
+    def __init__(self, root, scene="COMPLEX CITY", z_ground=-0.04, cameras=None):
+        from .calib import PHENIKAA_CAMERAS, load_phenikaa_calib
+        self.root = Path(root)
+        self.scene = scene
+        self.dir = self.root / scene
+        self.cameras = tuple(cameras or PHENIKAA_CAMERAS)
+        self.calib = load_phenikaa_calib(self.root / "Calib Information", z_ground)
+        files = {}
+        for cam in self.cameras:
+            files[cam] = sorted((_stamp(p), p) for p in (self.dir / "camera" / cam).glob("*.jpg")
+                                if "(" not in p.name)
+        self.timestamps = [t for t, _ in files[self.MASTER]]
+        self.rows = []  # per frame: {cam: path}
+        stamps = {cam: np.array([x[0] for x in items]) for cam, items in files.items()}
+        for k, t in enumerate(self.timestamps):
+            row = {self.MASTER: files[self.MASTER][k][1]}
+            for cam in self.cameras:
+                if cam == self.MASTER:
+                    continue
+                j = int(np.argmin(np.abs(stamps[cam] - t)))
+                if abs(stamps[cam][j] - t) > self.TOLERANCE_S:
+                    raise ValueError(f"{cam}: no frame within 50 ms of {t:.3f}")
+                row[cam] = files[cam][j][1]
+            self.rows.append(row)
+        self._pose = self._stamped("ego_pose")
+        self._label = self._stamped("label")
+        self.index = 0
+
+    def _stamped(self, sub):
+        return sorted((_stamp(p), p) for p in (self.dir / sub).glob("*.txt") if "(" not in p.name)
+
+    @staticmethod
+    def _nearest(items, t):
+        if not items:
+            return None
+        j = int(np.argmin([abs(x[0] - t) for x in items]))
+        return items[j][1] if abs(items[j][0] - t) <= 0.05 else None
+
+    def __len__(self):
+        return len(self.rows)
+
+    def seek(self, index):
+        if not 0 <= index < len(self):
+            raise IndexError(index)
+        self.index = index
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        import cv2
+        if self.index >= len(self):
+            raise StopIteration
+        i = self.index
+        t = self.timestamps[i]
+        images = {}
+        for cam, path in self.rows[i].items():
+            img = cv2.imread(str(path))
+            if img is None:
+                raise FileNotFoundError(f"Cannot read camera image: {path}")
+            images[cam] = img
+        ego_T = np.eye(4)
+        pp = self._nearest(self._pose, t)
+        if pp is not None:
+            ego_T = np.vstack([np.loadtxt(pp).reshape(3, 4), [0, 0, 0, 1]])
+        gt = []
+        lp = self._nearest(self._label, t)
+        if lp is not None:
+            for line in Path(lp).read_text().splitlines():
+                q = line.split()
+                if len(q) < 8:
+                    continue
+                cls = _PHENIKAA_CLASS.get(q[7])
+                if cls is None:
+                    continue
+                x, y, z, l, w, h, yaw = map(float, q[:7])
+                gt.append(dict(cls=cls, raw_cls=q[7], x=x, y=y, z=z, l=l, w=w, h=h, yaw=yaw))
+        self.index += 1
+        return Frame(t, images, {c: self.calib[c] for c in self.cameras}, ego_T, gt, i)
+
+    def close(self):
+        pass
