@@ -1,0 +1,4 @@
+{
+  "note": "Replace the assumed ego_box with the measured P-115 keep_mask before evaluation.",
+  "ego_box": {"length": 4.5, "width": 1.8, "x_offset": 0.0}
+}

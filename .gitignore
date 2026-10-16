@@ -1,6 +1,9 @@
 .venv/
 __pycache__/
 data/
+cache/
+results/log*.csv
+results/m3_local*.json
 results/colab/
 *.pt
 *.mp4
