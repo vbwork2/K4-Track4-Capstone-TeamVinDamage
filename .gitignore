@@ -7,6 +7,11 @@ results/m3_local*.json
 results/colab/
 *.pt
 *.mp4
+# Video demo: chủ dữ liệu Phenikaa đồng ý đưa lên repo
+!demo/*.mp4
+out_*.tar
+results/fe_test.json
+results/check_extrinsics.jpg
 .env
 colab/
 docs/COLAB.md
