@@ -1,0 +1,8 @@
+{
+  "ego_box": {"length": 4.5, "width": 1.8, "x_offset": 0.0},
+  "detection": {"min_conf": 0.4, "uncertain_conf": 0.55, "rider_iou": 0.3},
+  "fusion": {"distance_m": 1.0, "disagreement_m": 1.5, "association_m": 3.0},
+  "tracker": {"gate_m": 1.5, "max_age_s": 1.0, "trail_s": 1.0, "process_var": 2.0, "measurement_var": 1.0, "initial_velocity_var": 25.0},
+  "zone_cfg": {"side_margin_m": 1.0, "longitudinal_margin_m": 1.0, "lane_margin_m": 0.3, "cut_in_range_m": 10.0, "cut_in_time_s": 1.5, "ttc_warning_s": 2.5, "ttc_danger_s": 1.5, "max_range_m": 30.0, "side_level": 1, "cut_in_level": 1},
+  "height_m": {"person": 1.7, "rider": 1.6, "car": 1.5, "bus": 3.2, "truck": 3.0, "motorcycle": 1.6, "bicycle": 1.6}
+}
