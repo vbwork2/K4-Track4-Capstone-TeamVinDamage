@@ -4,9 +4,9 @@ Cảnh báo xe máy áp sát sườn, tạt đầu và nguy cơ phía trước b
 
 ## Video demo
 
-[▶ Xem video demo: Replay Phenikaa COMPLEX URBAN trên web (31 s)](<demo/Recording 2026-10-16 173813.mp4>)
+VIDEO_URL_HERE
 
-Video nằm ở `demo/Recording 2026-10-16 173813.mp4` và **không được commit lên GitHub**. Video có ảnh camera Phenikaa; SPEC §12 cho phép chiếu trong slide và video demo khi chủ dữ liệu đồng ý, nhưng không cho đưa vào repo (repo đang public). Muốn xem trên GitHub thì đưa video lên Drive riêng của nhóm và thay link ở trên.
+Không phát được thì tải [demo/demo.mp4](demo/demo.mp4) (31 s, 7,4 MB). Video có ảnh camera Phenikaa, đã được chủ dữ liệu đồng ý đưa lên repo.
 
 Nội dung video: chọn scene trong menu, lưới 6 camera có box YOLO11m, BEV 360° có nền LiDAR, track và vùng cảnh báo, banner trạng thái (SÁT SƯỜN / TẠT ĐẦU / PHÍA TRƯỚC / KHÔNG CHẮC), tua bằng timeline.
 
