@@ -1,0 +1,114 @@
+{
+  "L1": [
+    {
+      "scene": "COMPLEX CITY",
+      "frame": 18,
+      "cam": "CAM_P_F",
+      "score": 3,
+      "reason": "3 overlapping riders"
+    },
+    {
+      "scene": "COMPLEX CITY",
+      "frame": 22,
+      "cam": "CAM_P_F",
+      "score": 3,
+      "reason": "3 overlapping riders"
+    },
+    {
+      "scene": "COMPLEX CITY",
+      "frame": 23,
+      "cam": "CAM_P_F",
+      "score": 3,
+      "reason": "3 overlapping riders"
+    },
+    {
+      "scene": "COMPLEX CITY",
+      "frame": 24,
+      "cam": "CAM_P_F",
+      "score": 3,
+      "reason": "3 overlapping riders"
+    },
+    {
+      "scene": "COMPLEX CITY",
+      "frame": 41,
+      "cam": "CAM_P_F",
+      "score": 3,
+      "reason": "3 overlapping riders"
+    }
+  ],
+  "L2": [
+    {
+      "scene": "COMPLEX CITY",
+      "frame": 24,
+      "cam": "CAM_P_FR",
+      "score": 0.926,
+      "reason": "rider touches right edge"
+    },
+    {
+      "scene": "COMPLEX CITY",
+      "frame": 26,
+      "cam": "CAM_P_FR",
+      "score": 0.925,
+      "reason": "rider touches right edge"
+    },
+    {
+      "scene": "COMPLEX CITY",
+      "frame": 23,
+      "cam": "CAM_P_FR",
+      "score": 0.92,
+      "reason": "rider touches right edge"
+    },
+    {
+      "scene": "COMPLEX CITY",
+      "frame": 27,
+      "cam": "CAM_P_FR",
+      "score": 0.911,
+      "reason": "rider touches right edge"
+    },
+    {
+      "scene": "COMPLEX URBAN",
+      "frame": 168,
+      "cam": "CAM_P_R",
+      "score": 0.901,
+      "reason": "rider touches bottom edge"
+    }
+  ],
+  "L3": [],
+  "L4": [
+    {
+      "scene": "COMPLEX CITY",
+      "frame": 178,
+      "cam": "CAM_P_FR+CAM_P_R",
+      "score": -1.5000282633385706,
+      "reason": "rider seen 1.50 m apart by two cameras"
+    },
+    {
+      "scene": "COMPLEX URBAN",
+      "frame": 8,
+      "cam": "CAM_P_FR+CAM_P_R",
+      "score": -1.501048268718736,
+      "reason": "car seen 1.50 m apart by two cameras"
+    },
+    {
+      "scene": "COMPLEX URBAN",
+      "frame": 106,
+      "cam": "CAM_P_FR+CAM_P_R",
+      "score": -1.5017359987413215,
+      "reason": "car seen 1.50 m apart by two cameras"
+    },
+    {
+      "scene": "COMPLEX URBAN",
+      "frame": 155,
+      "cam": "CAM_P_FL+CAM_P_L",
+      "score": -1.5019518085132666,
+      "reason": "rider seen 1.50 m apart by two cameras"
+    },
+    {
+      "scene": "COMPLEX CITY",
+      "frame": 194,
+      "cam": "CAM_P_F+CAM_P_L",
+      "score": -1.5021352929122043,
+      "reason": "car seen 1.50 m apart by two cameras"
+    }
+  ]
+}

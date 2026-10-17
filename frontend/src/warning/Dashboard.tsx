@@ -1,12 +1,13 @@
 import * as React from 'react';
-import {Activity,ArrowLeft,ArrowRight,CheckCircle2,CircleAlert,Clock3,Eye,FileJson,Film,Layers3,Pause,Play,RotateCcw,ShieldAlert,SlidersHorizontal,Video,VideoOff,Wifi} from 'lucide-react';
+import {Activity,ArrowLeft,Database,ArrowRight,CheckCircle2,CircleAlert,Clock3,Eye,FileJson,Film,Layers3,Pause,Play,RotateCcw,ShieldAlert,SlidersHorizontal,Video,VideoOff,Wifi} from 'lucide-react';
 import {BevView} from './BevView';
 import {CAMERAS,CAM_NAMES,emptyState,paintLevel,parseFrameState,ZONE_NAME,ZONES,type Detection,type FrameState,type Track,type Zone} from './model';
 import {mockFrame,scenarioNames,TOTAL_FRAMES,type Scenario} from './mock';
 import './warning.css';
-type FeedMode='mock'|'api'|'json'|'webcam';
+type FeedMode='replay'|'mock'|'api'|'json'|'webcam';
+type SceneInfo={id:string;dataset:string;scene:string;model:string;n_frames:number|null;period_s:number;ready:boolean};
 const zero='—';
-const names={mock:'Demo mô phỏng',api:'Backend API',json:'Tệp JSON',webcam:'Webcam'} as const;
+const names={replay:'Replay dữ liệu thật',mock:'Demo mô phỏng',api:'Backend API',json:'Tệp JSON',webcam:'Webcam'} as const;
 function uniqueCameras(state:FrameState,mode:FeedMode):string[]{
  if(mode==='webcam')return ['WEBCAM'];
  const fromState=Object.keys(state.images);
@@ -43,7 +44,13 @@ function TrackTable({tracks}:{tracks:Track[]}){
  </div>)}</div>;
 }
 export default function Dashboard(){
- const [feed,setFeed]=React.useState<FeedMode>('mock');
+ const [feed,setFeed]=React.useState<FeedMode>(()=>location.hash==='#backend'?'api':location.hash==='#mock'?'mock':'replay');
+ const [scenes,setScenes]=React.useState<SceneInfo[]>([]);
+ const [sceneId,setSceneId]=React.useState('');
+ const [replayTotal,setReplayTotal]=React.useState(0);
+ const [loadingScene,setLoadingScene]=React.useState(false);
+ const frameCache=React.useRef(new Map<string,FrameState>());
+ const inflight=React.useRef(new Map<string,Promise<FrameState>>());
  const [scenario,setScenario]=React.useState<Scenario>('side');
  const [frame,setFrame]=React.useState(83);
  const [playing,setPlaying]=React.useState(true);
@@ -62,8 +69,10 @@ export default function Dashboard(){
  const recorderRef=React.useRef<MediaRecorder|null>(null);
  const videoChunks=React.useRef<Blob[]>([]);
  const fileRef=React.useRef<HTMLInputElement|null>(null);
- const state=feed==='mock'?mockFrame(frame,scenario,model):feed==='webcam'?emptyState('webcam'):feed==='json'?(imported[Math.min(frame,imported.length-1)]??emptyState('json')):(external??emptyState('backend'));
- const total=feed==='mock'?TOTAL_FRAMES:feed==='json'?imported.length:0;
+ const sceneInfo=scenes.find(s=>s.id===sceneId);
+ const period=feed==='replay'?(sceneInfo?.period_s??.1):.1;
+ const state=feed==='replay'?(external??emptyState('replay')):feed==='mock'?mockFrame(frame,scenario,model):feed==='webcam'?emptyState('webcam'):feed==='json'?(imported[Math.min(frame,imported.length-1)]??emptyState('json')):(external??emptyState('backend'));
+ const total=feed==='replay'?replayTotal:feed==='mock'?TOTAL_FRAMES:feed==='json'?imported.length:0;
  const isSynthetic=feed==='mock';
  const cameras=uniqueCameras(state,feed);
  const hasCritical=state.tracks.some(t=>t.level===2&&!t.uncertain);
@@ -72,8 +81,28 @@ export default function Dashboard(){
  const riskLabel=feed==='webcam'?'CHƯA CÓ AI':feed==='api'&&!online?'MẤT KẾT NỐI':hasCritical?'NGUY HIỂM':hasWarn?'CẢNH BÁO':uncertainCount?'KHÔNG CHẮC':'BÌNH THƯỜNG';
  const riskTone=hasCritical?'danger':feed==='api'&&!online||hasWarn||uncertainCount?'warning':'normal';
  const togglePlayback=React.useCallback(()=>setPlaying(x=>!x),[]);
- const step=React.useCallback((d:number)=>{setPlaying(false);setFrame(n=>Math.max(0,Math.min((feed==='json'?imported.length:TOTAL_FRAMES)-1,n+d)));},[feed,imported.length]);
- React.useEffect(()=>{if(!playing||(feed!=='mock'&&feed!=='json')||total<2)return;const timer=window.setInterval(()=>setFrame(n=>(n+1)%total),100);return ()=>window.clearInterval(timer);},[playing,feed,total]);
+ const step=React.useCallback((d:number)=>{setPlaying(false);setFrame(n=>Math.max(0,Math.min(total-1,n+d)));},[total]);
+ React.useEffect(()=>{if(!playing||(feed!=='mock'&&feed!=='json'&&feed!=='replay')||total<2)return;const timer=window.setInterval(()=>setFrame(n=>(n+1)%total),feed==='replay'?period*1000:100);return ()=>window.clearInterval(timer);},[playing,feed,total,period]);
+ // Replay: scene list from src/replay_server.py; frames are fetched on demand and prefetched ahead.
+ React.useEffect(()=>{let active=true;const load=async()=>{try{const r=await fetch('/warning-api/scenes',{cache:'no-store'});if(!r.ok)throw new Error(`HTTP ${r.status}`);
+   const list=(await r.json()) as SceneInfo[];if(!active)return;setScenes(list);setSceneId(id=>id||list[0]?.id||'');}
+  catch(e){if(!active)return;setScenes([]);setFeed(f=>{if(f==='replay'){setNotice(`Chưa có replay server (python -m src.replay_server): ${e instanceof Error?e.message:String(e)}. Đang hiện Demo mô phỏng.`);setPlaying(true);return 'mock';}return f;});}};
+  void load();const timer=window.setInterval(()=>void load(),4000);return ()=>{active=false;window.clearInterval(timer);};
+ },[]);
+ const fetchFrame=React.useCallback((id:string,i:number):Promise<FrameState>=>{const key=`${id}#${i}`;const hit=frameCache.current.get(key);if(hit)return Promise.resolve(hit);
+  const pending=inflight.current.get(key);if(pending)return pending;
+  const p=fetch(`/warning-api/frame?scene=${encodeURIComponent(id)}&i=${i}`,{cache:'no-store'}).then(async r=>{if(!r.ok)throw new Error(`HTTP ${r.status}`);const raw=await r.json() as {n_frames?:number};
+    const st=parseFrameState(raw);if(typeof raw.n_frames==='number')setReplayTotal(raw.n_frames);frameCache.current.set(key,st);
+    if(frameCache.current.size>400)frameCache.current.delete(frameCache.current.keys().next().value as string);
+    Object.values(st.images).forEach(src=>{const img=new Image();img.src=src;});return st;}).finally(()=>inflight.current.delete(key));
+  inflight.current.set(key,p);return p;},[]);
+ React.useEffect(()=>{if(feed!=='replay'||!sceneId)return;let active=true;
+  if(!frameCache.current.has(`${sceneId}#${frame}`)&&!sceneInfo?.ready)setLoadingScene(true);
+  fetchFrame(sceneId,frame).then(st=>{if(!active)return;setExternal(st);setOnline(true);setError('');setLoadingScene(false);
+    for(let k=1;k<=8;k++)if(replayTotal&&frame+k<replayTotal)void fetchFrame(sceneId,frame+k).catch(()=>undefined);})
+   .catch(e=>{if(!active)return;setLoadingScene(false);setOnline(false);setError(`Không đọc được frame: ${e instanceof Error?e.message:String(e)}`);});
+  return ()=>{active=false;};
+ },[feed,sceneId,frame,fetchFrame,replayTotal,sceneInfo?.ready]);
  React.useEffect(()=>{
   if(feed!=='api')return;
   let active=true,controller:AbortController|null=null;
@@ -87,7 +116,8 @@ export default function Dashboard(){
  React.useEffect(()=>{if(feed==='webcam'&&webcamRef.current&&streamRef.current)webcamRef.current.srcObject=streamRef.current;},[feed]);
  const stopWebcam=React.useCallback(()=>{streamRef.current?.getTracks().forEach(t=>t.stop());streamRef.current=null;},[]);
  React.useEffect(()=>()=>{stopWebcam();captureRef.current?.getTracks().forEach(t=>t.stop());},[stopWebcam]);
- const chooseFeed=(next:FeedMode)=>{if(feed==='webcam'&&next!=='webcam')stopWebcam();setFeed(next);setOnline(false);setError('');setPlaying(next==='mock'||next==='json');setFrame(0);setExternal(null);};
+ const chooseFeed=(next:FeedMode)=>{if(feed==='webcam'&&next!=='webcam')stopWebcam();setFeed(next);setOnline(false);setError('');setPlaying(next==='mock'||next==='json'||next==='replay');setFrame(0);setExternal(null);};
+ const chooseScene=(id:string)=>{if(feed!=='replay')chooseFeed('replay');setSceneId(id);setReplayTotal(scenes.find(s=>s.id===id)?.n_frames??0);setFrame(0);setExternal(null);setPlaying(true);};
  const openWebcam=async()=>{if(!navigator.mediaDevices?.getUserMedia){setNotice('Trình duyệt yêu cầu HTTPS hoặc localhost để truy cập camera.');return;}
    try{const stream=await navigator.mediaDevices.getUserMedia({video:{width:{ideal:1280},height:{ideal:720}},audio:false});stopWebcam();streamRef.current=stream;chooseFeed('webcam');streamRef.current=stream;setNotice('Webcam preview: chưa có AI detection / TTC.');}
    catch(e){setNotice(`Không mở được webcam: ${e instanceof Error?e.message:String(e)}`);}
@@ -121,17 +151,19 @@ export default function Dashboard(){
   };window.addEventListener('keydown',handler);return ()=>window.removeEventListener('keydown',handler);
  // Keyboard listener refreshed as callbacks change so actions always use current feed and record status.
  });
- const sec=(frame*.1).toFixed(1).padStart(4,'0');
+ const sec=(frame*period).toFixed(1).padStart(4,'0');
+ const sceneLabel=(s:SceneInfo)=>`${s.dataset==='phenikaa'?'Phenikaa':'nuScenes'} · ${s.scene}${s.scene==='scene-1094'?' (đêm)':''} · ${s.model}${s.ready?'':' · đang xử lý…'}`;
  return <div className="vd-shell">
   <header className="vd-header">
    <div className="vd-brand"><div className="vd-brandmark"><span>V</span><i/></div><div><strong>VinDamage<span className="vd-dot">.</span></strong><small>SURROUND RIDER WARNING</small></div></div>
-   <div className="vd-header-right"><span className="vd-version">SURROUND SAFETY · FEATURE ONLY</span><span className={`vd-source-pill ${feed==='api'?(online?'on':'off'):feed==='mock'?'mock':''}`}><span/>{feed==='api'?(online?'BACKEND CONNECTED':'BACKEND OFFLINE'):feed==='mock'?'MOCK DATA':feed==='webcam'?'LOCAL CAMERA':'IMPORTED JSON'}</span></div>
+   <div className="vd-header-right"><span className="vd-version">SURROUND SAFETY · FEATURE ONLY</span><span className={`vd-source-pill ${feed==='api'?(online?'on':'off'):feed==='mock'?'mock':feed==='replay'?(online?'on':'off'):''}`}><span/>{feed==='replay'?(online?'REPLAY · REAL DATA':'REPLAY SERVER OFFLINE'):feed==='api'?(online?'BACKEND CONNECTED':'BACKEND OFFLINE'):feed==='mock'?'MOCK DATA':feed==='webcam'?'LOCAL CAMERA':'IMPORTED JSON'}</span></div>
   </header>
   <div className="vd-body vd-body--single">
    <div className="vd-feature-toolbar" aria-label="Điều khiển VinDamage">
      <div className="vd-feature-feeds">
        <span className="vd-feature-label">Nguồn dữ liệu</span>
        <div className="vd-feed-options" role="group" aria-label="Chọn nguồn dữ liệu">
+        <button type="button" className={feed==='replay'?'selected':''} aria-pressed={feed==='replay'} onClick={()=>chooseFeed('replay')}><Database size={16}/><span>Replay</span></button>
         <button type="button" className={feed==='mock'?'selected':''} aria-pressed={feed==='mock'} onClick={()=>chooseFeed('mock')}><Film size={16}/><span>Demo</span></button>
         <button type="button" className={feed==='api'?'selected':''} aria-pressed={feed==='api'} onClick={()=>chooseFeed('api')}><Wifi size={16}/><span>Backend</span></button>
         <button type="button" className={feed==='json'?'selected':''} aria-pressed={feed==='json'} onClick={()=>fileRef.current?.click()}><FileJson size={16}/><span>Nhập JSON</span></button>
@@ -140,17 +172,21 @@ export default function Dashboard(){
        </div>
      </div>
      <div className="vd-feature-scenarios">
-       <label className="vd-feature-label" htmlFor="vd-scenario-picker">Kịch bản demo</label>
+       {feed==='replay'?<><label className="vd-feature-label" htmlFor="vd-scene-picker">Scene</label>
+       <select id="vd-scene-picker" value={sceneId} onChange={e=>chooseScene(e.target.value)}>
+        {scenes.length===0&&<option value="">Chưa có scene (cache/)</option>}
+        {scenes.map(s=><option value={s.id} key={s.id}>{sceneLabel(s)}</option>)}
+       </select></>:<><label className="vd-feature-label" htmlFor="vd-scenario-picker">Kịch bản demo</label>
        <select id="vd-scenario-picker" value={scenario} onChange={e=>{const s=e.target.value as Scenario;chooseFeed('mock');setScenario(s);setFrame(s==='side'?83:s==='cutin'?130:s==='uncertain'?80:15);setPlaying(true);}}>
         {(Object.keys(scenarioNames) as Scenario[]).map(name=><option value={name} key={name}>{scenarioNames[name]}</option>)}
-       </select>
+       </select></>}
      </div>
      <p className="vd-feature-disclaimer"><ShieldAlert size={16}/> Minh họa giao diện; không dùng làm hệ thống an toàn thực tế.</p>
    </div>
   <main className="vd-main">
    <div className="vd-page-title"><div><p className="vd-eyebrow"><span className="vd-eyebrow-line"/>PERCEPTION / SURROUND VIEW</p><h1>Surround Safety <span>Monitor</span></h1><p className="vd-subtitle">Giám sát đa camera · định vị BEV · cảnh báo phương tiện áp sát</p></div><div className="vd-title-actions"><span className="vd-mode-tag"><span className={feed==='api'&&online?'live':''}/>{names[feed]}</span><button type="button" className="vd-iconbtn" title="Quay lại" onClick={()=>{setFrame(0);setPlaying(false);}}><RotateCcw size={18}/></button></div></div>
    <section className={`vd-alert-banner ${riskTone}`} aria-live="polite"><div className="vd-alert-icon">{hasCritical?<ShieldAlert size={24}/>:hasWarn||uncertainCount?<CircleAlert size={24}/>:<CheckCircle2 size={24}/>}</div>
-     <div className="vd-alert-text"><span>SAFETY STATUS <span className="vd-banner-sep">/</span> {feed==='mock'?'SIMULATED SCENARIO':(feed==='api'&&!online)?'WAITING FOR BACKEND':(feed==='webcam')?'CAMERA PREVIEW':'BACKEND REPORTED'}</span><strong>{riskLabel}</strong></div>
+     <div className="vd-alert-text"><span>SAFETY STATUS <span className="vd-banner-sep">/</span> {feed==='mock'?'SIMULATED SCENARIO':feed==='replay'?(loadingScene?'RUNNING PIPELINE…':`${sceneInfo?.dataset==='phenikaa'?'PHENIKAA':'NUSCENES'} · ${sceneInfo?.scene??''}`):(feed==='api'&&!online)?'WAITING FOR BACKEND':(feed==='webcam')?'CAMERA PREVIEW':'BACKEND REPORTED'}</span><strong>{riskLabel}</strong></div>
      <div className="vd-alert-extra"><span>ACTIVE ALERTS</span><strong>{ZONES.reduce((n,z)=>n+state.stats.alerts[z],0).toString().padStart(2,'0')}</strong></div><span className="vd-alert-flag">{isSynthetic?'DEMO ONLY':'FE VISUALIZATION'}</span>
    </section>
    <div className="vd-primary-grid"><section className="vd-panel vd-camera-panel"><div className="vd-panel-header"><div><div className="vd-panel-title"><span className="vd-title-icon"><Video size={17}/></span><h2>Multi-camera feed</h2><span className="vd-panel-counter">{cameras.length.toString().padStart(2,'0')} CAMERAS</span></div><p>Camera surveillance · Detection overlay</p></div><div className="vd-panel-end"><span className="vd-minor-dot"/> {feed==='webcam'?'1 camera':cameras.length+' camera channels'}</div></div>
@@ -162,17 +198,17 @@ export default function Dashboard(){
     <div className="vd-bev-controls"><label><input type="checkbox" checked={showGt} onChange={e=>setShowGt(e.target.checked)}/> Ground truth <small>(G)</small></label><label><input type="checkbox" checked={showLidar} onChange={e=>setShowLidar(e.target.checked)}/> LiDAR layer</label></div>
     <div className="vd-zone-legend"><span><i className="vd-zone-side"/>Sát sườn</span><span><i className="vd-zone-front"/>Tạt đầu</span><span><i className="vd-zone-line"/>Phía trước</span></div>
    </section></div>
-   <div className="vd-bottom-grid"><section className="vd-panel vd-timeline-panel"><div className="vd-panel-header slim"><div className="vd-panel-title"><span className="vd-title-icon"><Film size={17}/></span><h2>Playback control</h2></div><span className="vd-panel-counter">{feed==='api'?'POLL 350MS':feed==='webcam'?'CAMERA LIVE':`${(frame+1).toString().padStart(3,'0')} / ${total.toString().padStart(3,'0')}`}</span></div>
-    <div className="vd-playbar"><div className="vd-play-controls"><button aria-label="Lùi một frame" disabled={!total} onClick={()=>step(-1)}><ArrowLeft size={18}/></button><button className="vd-play-main" aria-label={playing?'Pause':'Play'} disabled={feed==='webcam'} onClick={togglePlayback}>{playing?<Pause size={18} fill="currentColor"/>:<Play size={18} fill="currentColor"/>}</button><button aria-label="Tiến một frame" disabled={!total} onClick={()=>step(1)}><ArrowRight size={18}/></button></div><span className="vd-play-time">{total?`00:${sec}`:'--:--'}</span><div className="vd-scrub">{total?<input type="range" aria-label="Frame timeline" min="0" max={Math.max(total-1,0)} value={frame} onChange={e=>{setFrame(Number(e.target.value));setPlaying(false);}}/>:<div className="vd-scrub-disabled"/>}</div><span className="vd-play-time">{total?`${(total*.1).toFixed(1)}s`:'LIVE'}</span><button className={`vd-record ${recording?'active':''}`} onClick={()=>void toggleRecord()}><span/>{recording?'STOP':'RECORD'}</button></div>
+   <div className="vd-bottom-grid"><section className="vd-panel vd-timeline-panel"><div className="vd-panel-header slim"><div className="vd-panel-title"><span className="vd-title-icon"><Film size={17}/></span><h2>Playback control</h2></div><span className="vd-panel-counter">{feed==='replay'&&loadingScene?'LOADING SCENE…':feed==='api'?'POLL 350MS':feed==='webcam'?'CAMERA LIVE':`${(frame+1).toString().padStart(3,'0')} / ${total.toString().padStart(3,'0')}`}</span></div>
+    <div className="vd-playbar"><div className="vd-play-controls"><button aria-label="Lùi một frame" disabled={!total} onClick={()=>step(-1)}><ArrowLeft size={18}/></button><button className="vd-play-main" aria-label={playing?'Pause':'Play'} disabled={feed==='webcam'} onClick={togglePlayback}>{playing?<Pause size={18} fill="currentColor"/>:<Play size={18} fill="currentColor"/>}</button><button aria-label="Tiến một frame" disabled={!total} onClick={()=>step(1)}><ArrowRight size={18}/></button></div><span className="vd-play-time">{total?`00:${sec}`:'--:--'}</span><div className="vd-scrub">{total?<input type="range" aria-label="Frame timeline" min="0" max={Math.max(total-1,0)} value={frame} onChange={e=>{setFrame(Number(e.target.value));setPlaying(false);}}/>:<div className="vd-scrub-disabled"/>}</div><span className="vd-play-time">{total?`${(total*period).toFixed(1)}s`:'LIVE'}</span><button className={`vd-record ${recording?'active':''}`} onClick={()=>void toggleRecord()}><span/>{recording?'STOP':'RECORD'}</button></div>
     <div className="vd-shortcuts"><span><kbd>Space</kbd> Pause</span><span><kbd>←</kbd><kbd>→</kbd> Frame</span><span><kbd>G</kbd> Ground truth</span><span><kbd>M</kbd> Mock model</span><span><kbd>R</kbd> Record WebM</span></div>
    </section>
    <section className="vd-panel vd-objects-panel"><div className="vd-panel-header slim"><div className="vd-panel-title"><span className="vd-title-icon"><Eye size={17}/></span><h2>Tracked objects</h2></div><span className="vd-panel-counter">{state.stats.n_tracks} ACTIVE</span></div><TrackTable tracks={state.tracks}/></section></div>
-   <div className="vd-metrics-grid"><div className="vd-metric"><div><Activity size={17}/><span>FRAME RATE</span></div><strong>{feed==='mock'?'—':state.stats.fps===null?zero:state.stats.fps.toFixed(1)} <small>FPS</small></strong><span>{feed==='mock'?'Not measured · mock':'Reported by backend'}</span></div>
+   <div className="vd-metrics-grid"><div className="vd-metric"><div><Activity size={17}/><span>FRAME RATE</span></div><strong>{feed==='mock'?'—':state.stats.fps===null?zero:state.stats.fps.toFixed(1)} <small>FPS</small></strong><span>{feed==='mock'?'Not measured · mock':feed==='replay'?'Local pipeline, không gồm YOLO':'Reported by backend'}</span></div>
    <div className="vd-metric"><div><Clock3 size={17}/><span>PROCESSING LATENCY</span></div><strong>{state.stats.latency_ms===null?zero:state.stats.latency_ms.toFixed(0)} <small>ms</small></strong><span>{feed==='mock'?'No real timing':'Backend measurement'}</span></div>
    <div className="vd-metric"><div><Layers3 size={17}/><span>ACTIVE TRACKS</span></div><strong>{state.stats.n_tracks.toString().padStart(2,'0')} <small>objects</small></strong><span>Across available cameras</span></div>
    <div className="vd-metric"><div><ShieldAlert size={17}/><span>WARNING ZONES</span></div><strong>{ZONES.filter(z=>state.stats.alerts[z]>0).length} <small>/ 3 zones</small></strong><span>{ZONES.map(z=>`${ZONE_NAME[z]} ${state.stats.alerts[z]}`).join(' · ')}</span></div></div>
    {(error||notice)&&<div className="vd-notice" role="status"><CircleAlert size={16}/>{error||notice}<button type="button" onClick={()=>{setNotice('');setError('');}} aria-label="Đóng thông báo">×</button></div>}
-   <footer className="vd-footer"><span>VIN DAMAGE · PERCEPTION & SAFETY ENGINEERING</span><span>{isSynthetic?'SYNTHETIC FIXTURE · NOT REAL-WORLD RESULTS':feed==='webcam'?'LOCAL CAMERA PREVIEW · NO MODEL INFERENCE':feed==='api'?'BACKEND STATE CONTRACT V1':'IMPORTED DATA · VERIFY SOURCE'}</span><span>FEATURE PAGE / V1.1</span></footer>
+   <footer className="vd-footer"><span>VIN DAMAGE · PERCEPTION & SAFETY ENGINEERING</span><span>{isSynthetic?'SYNTHETIC FIXTURE · NOT REAL-WORLD RESULTS':feed==='replay'?'REPLAY · CACHE YOLO → CORE GEOMETRY → BE TRACKER':feed==='webcam'?'LOCAL CAMERA PREVIEW · NO MODEL INFERENCE':feed==='api'?'BACKEND STATE CONTRACT V1':'IMPORTED DATA · VERIFY SOURCE'}</span><span>FEATURE PAGE / V1.1</span></footer>
   </main></div>
  </div>;
 }

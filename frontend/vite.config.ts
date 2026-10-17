@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
+declare const process: { env: Record<string, string | undefined> };
+
 // Only one route: / . No P-115 workspace and no authentication redirects.
 export default defineConfig({
   plugins: [react()],
